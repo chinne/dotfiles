@@ -1,0 +1,12 @@
+= Neovim
+
+Install link:https://github.com/BurntSushi/ripgrep[ripgrep] for link:https://github.com/nvim-telescope/telescope.nvim[nvim-telescope].
+
+link:https://github.com/nvim-treesitter/nvim-treesitter[nvim-treesitter]:
+
+tree-sitter-phpdoc fix for ARM64 problem 
+https://github.com/claytonrcarter/tree-sitter-phpdoc/issues/15#issuecomment-1212766164
+
+== What is Neovim?
+
+link:https://neovim.io/[Neovim]

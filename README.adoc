@@ -1,0 +1,61 @@
+= Dotfiles
+
+Dotfiles are configuration files that are used to customize and personalize your system.
+These files typically start with a period (or "dot") and are hidden by default in your file system.
+They are used to store settings for a wide range of applications, from your terminal to your text editor and beyond.
+
+Managing these dotfiles can be a challenge, especially if you have multiple systems or if you want to share your configuration with others.
+One tool that can help with this task is link:http://www.gnu.org/software/stow/[GNU Stow].
+Stow is a command-line utility that allows you to manage your dotfiles in a simple and organized way.
+
+Here's how to use Stow to manage your dotfiles:
+
+Install Stow on your system.
+On most systems, this can be done using your package manager.
+For example, to install GNU Stow on macOS, you can use the link:https://brew.sh/[Homebrew package manager]:
+
+[.language="shell"]
+----
+brew install stow
+----
+
+Create a directory to store your dotfiles.
+This is where Stow will look for the files that you want to manage.
+I would recommend to create a directory called dotfiles in your _home_ directory:
+
+[.language="shell"]
+----
+mkdir ~/dotfiles
+----
+
+Move your dotfiles into the dotfiles directory.
+For example, if you want to manage your .bashrc file, you would move it into the dotfiles directory like this:
+
+[.language="shell"]
+----
+mkdir ~/dotfiles/zsh
+mv ~/.zshrc ~/dotfiles/zsh
+----
+
+Use Stow to create symlinks for your dotfiles.
+This will create a link from the dotfiles directory to the appropriate location in your home directory.
+For example, to create a symlink for your .zshrc file, you would use the following command:
+
+[.language="shell"]
+----
+stow zsh
+----
+
+This will create a symlink for the .zshrc file in the dotfiles/zsh directory.
+
+Using Stow to manage your dotfiles has several benefits:
+
+1. It allows you to keep your dotfiles organized and separate from other files on your system.
+This makes it easy to find and manage your configuration files.
+
+2. Stow allows you to easily share your dotfiles with others.
+For example, you can version your dotfiles using a version control system like Git, and then share them with others on platforms like GitHub.
+😉
+
+3. Stow makes it easy to switch between different configurations on different systems.
+For example, you could have a separate set of dotfiles for your work and personal systems, and easily switch between them using Stow.

@@ -1,0 +1,23 @@
+= tmux config
+
+[.language="shell"]
+----
+stow ~/dotfiles/tmux
+----
+
+== What is tmux?
+
+link:https://github.com/tmux/tmux[tmux] is a popular open-source terminal multiplexer. It allows you to use multiple terminal sessions within a single terminal window or console. This can be useful if you need to run multiple commands or programs simultaneously, or if you want to access the same session from multiple locations.
+
+tmux is similar to the screen command, but it has a number of additional features and capabilities. For example, tmux supports window splitting, pane management, and scrollback history. It also allows you to create and manage multiple sessions, and it provides an easy-to-use interface for managing your terminal sessions.
+
+To use tmux, you will need to have it installed on your system. You can then run the tmux command to start a new tmux session. Within the tmux session, you can use the keyboard shortcuts and commands provided by tmux to control and manage your terminal sessions.
+
+=== Installation
+
+You can install tmux e.g. with Homebrew:
+
+[.language="shell"]
+----
+brew install tmux
+----
