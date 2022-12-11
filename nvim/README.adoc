@@ -9,4 +9,4 @@ https://github.com/claytonrcarter/tree-sitter-phpdoc/issues/15#issuecomment-1212
 
 == What is Neovim?
 
-link:https://neovim.io/[Neovim]
+link:https://neovim.io/[Neovim] is a free and open-source text editor that is designed to be a modern, customizable, and improved version of the popular text editor Vim. Neovim is known for its extensibility and its ability to integrate with a wide range of tools and plugins. It has a command-based user interface that allows users to easily edit text, navigate files, and run commands, and it can be customized through the use of plugins and configuration options. Neovim is widely used by programmers and other technology professionals for a variety of tasks, including writing and editing code, managing files, and working with databases.
