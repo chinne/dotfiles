@@ -64,7 +64,7 @@ return {
     },
 
   },
-  window_decorations = 'None',
+  --window_decorations = 'None',
   window_frame = {
     border_left_width = '0.5cell',
     border_right_width = '0.5cell',
@@ -74,7 +74,7 @@ return {
   scrollback_lines = 3500,
   adjust_window_size_when_changing_font_size=false,
   hide_tab_bar_if_only_one_tab = true,
-  color_scheme = 'Catppuccin Mocha',
-  font = wezterm.font('Hack Nerd Font'),
+  color_scheme = 'Catppuccin Frappe',
+  font = wezterm.font('JetBrains Mono'),
   font_size = 14,
 }

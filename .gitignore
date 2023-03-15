@@ -2,3 +2,5 @@ nvim/.config/nvim/plugin/packer_compiled.lua
 
 .idea
 archive
+
+.DS_Store
