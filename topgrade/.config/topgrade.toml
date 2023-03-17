@@ -2,7 +2,7 @@
 assume_yes = true
 
 # Disable specific steps - same options as the command line flag
-#disable = ["system", "emacs"]
+disable = ["containers"]#["system", "emacs"]
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
@@ -73,7 +73,7 @@ skip_notify = true
 #"Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 
 [brew]
-#greedy_cask = true
+greedy_cask = true
 #autoremove = true
 
 [linux]
