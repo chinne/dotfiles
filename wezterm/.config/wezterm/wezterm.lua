@@ -3,6 +3,7 @@ local act = wezterm.action
 
 return {
   leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000},
+  -- test
   --leader = { key = 'Caps_Lock', timeout_milliseconds = 1000},
   keys = {
     {
