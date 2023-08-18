@@ -192,7 +192,7 @@ client.background       #FFFFFF
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-gaps inner 5px
+gaps inner 1px
 gaps outer 5px
 
 exec_always --no-startup-id ~/scripts/desktop_arrangements.sh
