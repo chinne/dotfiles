@@ -59,3 +59,8 @@ For example, you can version your dotfiles using a version control system like G
 
 3. Stow makes it easy to switch between different configurations on different systems.
 For example, you could have a separate set of dotfiles for your work and personal systems, and easily switch between them using Stow.
+
+== Additional Tools
+
+- polybar
+- rofi
