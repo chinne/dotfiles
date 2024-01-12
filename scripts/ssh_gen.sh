@@ -22,7 +22,7 @@ select ITEM in "${cryptography_algorithms[@]}"; do
     esac
 done
 
-file_path="~/.ssh/$file_name"
+file_path=~/.ssh/$file_name
 ssh-keygen -t "$crypto" -a 100 -f $file_path
 echo "SSH key generated and saved as $file_path"
 
