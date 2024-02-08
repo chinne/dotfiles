@@ -31,7 +31,7 @@ alias vim='nvim'
 alias vi='nvim'
 alias v="nvim"
 
-# exa is a modern ls.
+# eza is a modern ls.
 export TIME_STYLE="long-iso"
 LS_FLAGS="--all --group-directories-first --sort=name"
 alias ls="eza ${LS_FLAGS} --across"
