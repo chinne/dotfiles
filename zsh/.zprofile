@@ -1,4 +1,5 @@
 export XDG_CONFIG_HOME=$HOME/.config
+export PATH="$PATH;"
 
 PERSONAL=$XDG_CONFIG_HOME/personal
 #for i in `find -L $PERSONAL`; do
@@ -35,7 +36,7 @@ alias v="nvim"
 export TIME_STYLE="long-iso"
 LS_FLAGS="--all --group-directories-first --sort=name"
 alias ls="eza ${LS_FLAGS} --across"
-alias ll="eza ${LS_FLAGS} --long --group --header --binary --created --modified --git --classify"
+alias ll="eza ${LS_FLAGS} --long --group --header --binary --created --modified --git --classify -a"
 alias l="ls"
 alias tree="ll --tree"
 
