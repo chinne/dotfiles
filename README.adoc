@@ -9,6 +9,7 @@ One tool that can help with this task is link:http://www.gnu.org/software/stow/[
 Stow is a command-line utility that allows you to manage your dotfiles in a simple and organized way.
 
 required tools:
+
 * stow
 * starship
 * fastfetch
