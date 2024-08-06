@@ -14,6 +14,8 @@ required tools:
 * starship
 * fastfetch
 * zsh
+* eza
+* neovim
 
 Here's how to use Stow to manage your dotfiles:
 

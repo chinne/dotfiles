@@ -1,3 +1,4 @@
+// -*- mode: jsonc -*-
 {
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
@@ -5,9 +6,31 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["custom/chatgpt", "hyprland/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
-    //"modules-center": ["sway/window"],
-    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
+    "modules-left": [
+        "hyprland/workspaces"
+        // "hyprland/mode",
+        // "hyprland/scratchpad",
+        // "custom/media"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        // "idle_inhibitor",
+        "pulseaudio",
+        "network",
+        // "power-profiles-daemon",
+        // "cpu",
+        // "memory",
+        // "temperature",
+        // "backlight",
+        // "keyboard-state",
+	    // "hyprland/language",
+        "clock",
+        // "custom/power",
+        "tray"
+    ],
+
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -44,12 +67,19 @@
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
+    "hyprland/language": {
+    	"format": "{}",
+    	"min-length" : 8,
+    	"format-en": "us",
+    	"format-de": "de",
+    	"keyboard-name": "at-translated-set-2-keyboard"
+    },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
         "format-disconnected": "Disconnected ",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
         "unknown-tag": "N/A",
-        "interval": 2,
+        "interval": 5,
         "consume-icons": {
             "on": " "
         },
@@ -113,6 +143,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
@@ -126,11 +157,22 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -163,9 +205,36 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
-    "custom/chatgpt": {
-    "format": "Z",
-    "on-click": "brave --app=https://chat.openai.com"
+    "custom/power": {
+        "format" : "⏻ ",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		"menu-actions": {
+			"shutdown": "shutdown",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate"
+		}
+    },
+    "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    // "persistent-workspaces": {
+    //     "*": [
+    //       "DP-1" // workspace 1 shown on DP-3
+    //     ]},
+    "format": "{name} {icon}",
+    "format-icons": {
+      "1": "💻",
+      "2": "📝",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "🎵",
+      "7": "🌍",
+      "8": "",
+      "9": ""
     }
+  }
 }
-

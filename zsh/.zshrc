@@ -14,3 +14,5 @@ bindkey "^[[1;3C" forward-word                  # Key Alt + Right
 bindkey "^[[1;3D" backward-word                 # Key Alt + Left
 
 eval "$(starship init zsh)"
+
+source .zprofile
