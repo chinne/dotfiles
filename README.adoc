@@ -16,6 +16,8 @@ required tools:
 * zsh
 * eza
 * neovim
+* wezterm
+* ttf-hack-nerd
 
 Here's how to use Stow to manage your dotfiles:
 

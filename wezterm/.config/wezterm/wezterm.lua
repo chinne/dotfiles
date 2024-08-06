@@ -16,7 +16,7 @@ config.font = wezterm.font_with_fallback({
 config.window_background_opacity = 0.9
 config.window_close_confirmation = "NeverPrompt"
 config.scrollback_lines = 3500
-
+config.enable_wayland = false
 -- Tab bar
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = false
