@@ -1,3 +1,5 @@
+PATH=/bin:/usr/bin:/usr/local/bin:/sbin:${PATH}
+
 fastfetch
 
 HISTFILE=~/.zsh_histfile
