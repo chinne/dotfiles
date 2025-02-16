@@ -18,11 +18,25 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-fastfetch
 
-HISTFILE=~/.zsh_histfile
-HISTSIZE=10000
-SAVEHIST=1000
+set -o vi
+
+export VISUAL=nvim
+export EDITOR=nvim
+export TERM="tmux-256color"
+
+export BROWSER="firefox"
+
+export REPOS="$HOME/repos"
+
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_DUPS
+setopt SHARE_HISTORY        # Share history between sessions
+
 bindkey -e
 
 bindkey "^[[3~" delete-char                     # Key Del
@@ -33,7 +47,17 @@ bindkey "^[[F" end-of-line                      # Key End
 bindkey "^[[1;3C" forward-word                  # Key Alt + Right
 bindkey "^[[1;3D" backward-word                 # Key Alt + Left
 
-eval "$(starship init zsh)"
+if [[ "$OSTYPE" == darwin* ]]; then
+  fpath+=("$(brew --prefix)/share/zsh/site-functions")
+else
+  fpath+=($HOME/.zsh/pure)
+fi
+
+autoload -U promptinit; promptinit
+prompt pure
 
 source ~/.zprofile
 
+alias gs="git status"
+alias c="clear"
+alias v=nvim
