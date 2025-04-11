@@ -59,5 +59,7 @@ prompt pure
 source ~/.zprofile
 
 alias gs="git status"
+alias gc="git commit -m"
+
 alias c="clear"
 alias v=nvim
