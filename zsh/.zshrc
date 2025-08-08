@@ -6,7 +6,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     PATH="/mnt/c/Windows/System32:$PATH"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS-specific settings
-    PATH="/opt/homebrew/bin:$PATH"
+    PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:/opt/homebrew/bin:$PATH"
 fi
 
 function y() {
