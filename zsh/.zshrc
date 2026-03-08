@@ -49,12 +49,9 @@ bindkey "^[[1;3D" backward-word                 # Key Alt + Left
 
 if [[ "$OSTYPE" == darwin* ]]; then
   fpath+=("$(brew --prefix)/share/zsh/site-functions")
-else
-  fpath+=($HOME/.zsh/pure)
 fi
 
-autoload -U promptinit; promptinit
-prompt pure
+eval "$(starship init zsh)"
 
 source ~/.zprofile
 
