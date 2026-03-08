@@ -20,26 +20,23 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-
 set -o vi
 
 export VISUAL=nvim
 export EDITOR=nvim
 export TERM="tmux-256color"
-
 export BROWSER="firefox"
-
 export REPOS="$HOME/repos"
+export TIME_STYLE="long-iso"
 
 HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=999999
+SAVEHIST=$HISTSIZE
+HISTORY_IGNORE='(l|ls|ll|cd|cd ..|pwd|exit|date|history)'
 
 setopt HIST_IGNORE_SPACE
 setopt HIST_IGNORE_DUPS
-setopt SHARE_HISTORY        # Share history between sessions
-
-bindkey -e
+setopt SHARE_HISTORY
 
 bindkey "^[[3~" delete-char                     # Key Del
 bindkey "^[[5~" beginning-of-buffer-or-history  # Key Page Up
@@ -48,17 +45,36 @@ bindkey "^[[H" beginning-of-line                # Key Home
 bindkey "^[[F" end-of-line                      # Key End
 bindkey "^[[1;3C" forward-word                  # Key Alt + Right
 bindkey "^[[1;3D" backward-word                 # Key Alt + Left
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 if [[ "$OSTYPE" == darwin* ]] && command -v brew &>/dev/null; then
-  fpath+=("$(brew --prefix)/share/zsh/site-functions")
+    fpath+=("$(brew --prefix)/share/zsh/site-functions")
 fi
+
+autoload -Uz compinit && compinit
 
 eval "$(starship init zsh)"
 
-source ~/.zprofile
+# Editor
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
 
+# ls
+LS_FLAGS="--all --group-directories-first --sort=name"
+alias ls="eza ${LS_FLAGS} --across"
+alias ll="eza ${LS_FLAGS} --long --group --header --binary --created --modified --git --classify -a"
+alias l="ls"
+alias tree="ll --tree"
+
+# Git
 alias gs="git status"
 alias gc="git commit -m"
 
+# Navigation
 alias c="clear"
-alias v=nvim
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
