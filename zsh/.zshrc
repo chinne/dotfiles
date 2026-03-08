@@ -40,6 +40,7 @@ HISTORY_IGNORE='(l|ls|ll|cd|cd ..|pwd|exit|date|history)'
 setopt HIST_IGNORE_SPACE
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
 
 bindkey "^[[3~" delete-char                     # Key Del
 bindkey "^[[5~" beginning-of-buffer-or-history  # Key Page Up
@@ -78,7 +79,7 @@ alias l="ls"
 alias tree="ll --tree"
 
 # Git
-alias gs="git status"
+alias gst="git status"
 alias gc="git commit -m"
 
 # Navigation
