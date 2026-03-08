@@ -23,15 +23,14 @@ PACKAGES=(
     docker
     dotnet
     eza
+    fd
+    fzf
     go
     graphviz
     hugo
     neovim
     node
     openjdk
-    python@3.9
-    python@3.10
-    python@3.11
     python3
     ripgrep
     starship
@@ -39,12 +38,13 @@ PACKAGES=(
     terraform
     terraform-rover
     topgrade
-    virtualenv
     wget
+    yazi
+    zsh-completions
 )
 
 echo "Installing packages..."
-brew list ${PACKAGES[@]} &>/dev/null || brew install ${PACKAGES[@]};
+brew install "${PACKAGES[@]}"
 
 CASKS=(
     aws-vault
@@ -67,7 +67,7 @@ CASKS=(
 )
 
 echo "Installing cask apps..."
-brew list ${CASKS[@]} &>/dev/null || brew install ${CASKS[@]} --cask;
+brew install --cask "${CASKS[@]}"
 
 echo "Download pkg for software to install manually"
 curl -o ~/Downloads/pp_vpn.pkg https://www.perfect-privacy.com/downloads/Perfect_Privacy_VPN.pkg

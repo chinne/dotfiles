@@ -23,6 +23,6 @@ select ITEM in "${cryptography_algorithms[@]}"; do
 done
 
 file_path=~/.ssh/$file_name
-ssh-keygen -t "$crypto" -a 100 -f $file_path
+ssh-keygen -t "$crypto" -a 100 -f "$file_path"
 echo "SSH key generated and saved as $file_path"
 

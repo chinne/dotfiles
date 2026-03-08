@@ -11,6 +11,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     fi
 fi
 
+export PATH
+
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -24,7 +26,8 @@ set -o vi
 
 export VISUAL=nvim
 export EDITOR=nvim
-export TERM="tmux-256color"
+# Only set TERM inside tmux; let the terminal set it otherwise
+[ -n "$TMUX" ] && export TERM="tmux-256color"
 export BROWSER="firefox"
 export REPOS="$HOME/repos"
 export TIME_STYLE="long-iso"
@@ -52,7 +55,13 @@ if [[ "$OSTYPE" == darwin* ]] && command -v brew &>/dev/null; then
     fpath+=("$(brew --prefix)/share/zsh/site-functions")
 fi
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+# Only regenerate compdump once per day
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+else
+    compinit -C
+fi
 
 eval "$(starship init zsh)"
 
