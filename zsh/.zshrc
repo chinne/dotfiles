@@ -1,12 +1,14 @@
 
 PATH=/bin:/usr/bin:/usr/local/bin:/sbin:${PATH}
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # WSL-specific settings
+if grep -qi microsoft /proc/version 2>/dev/null; then
+    # WSL2-specific settings
     PATH="/mnt/c/Windows/System32:$PATH"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    # macOS-specific settings
-    PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:/opt/homebrew/bin:$PATH"
+    # macOS-specific settings — use brew prefix to support both Intel and Apple Silicon
+    if command -v brew &>/dev/null; then
+        PATH="$(brew --prefix)/bin:$PATH"
+    fi
 fi
 
 function y() {
@@ -47,7 +49,7 @@ bindkey "^[[F" end-of-line                      # Key End
 bindkey "^[[1;3C" forward-word                  # Key Alt + Right
 bindkey "^[[1;3D" backward-word                 # Key Alt + Left
 
-if [[ "$OSTYPE" == darwin* ]]; then
+if [[ "$OSTYPE" == darwin* ]] && command -v brew &>/dev/null; then
   fpath+=("$(brew --prefix)/share/zsh/site-functions")
 fi
 

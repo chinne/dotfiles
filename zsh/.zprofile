@@ -1,5 +1,5 @@
 export XDG_CONFIG_HOME=$HOME/.config
-export PATH="$PATH;"
+export PATH="$PATH"
 
 PERSONAL=$XDG_CONFIG_HOME/personal
 #for i in `find -L $PERSONAL`; do

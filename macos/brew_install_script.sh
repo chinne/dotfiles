@@ -22,7 +22,7 @@ PACKAGES=(
     bat
     docker
     dotnet
-    exa
+    eza
     go
     graphviz
     hugo
